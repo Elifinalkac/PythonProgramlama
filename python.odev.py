@@ -177,3 +177,176 @@ for i in range(1,11):
         print(f"{i}*{j}: {i*j} ")
     print("*"*15)
 """
+
+#11)
+"""
+Bir sayı eğer 4 basamaklı ise ve sayıyı oluşturan rakamlardan her birinin 4. kuvvetinin toplamı  (3 basamaklı sayılar için 3.kuvveti) o sayıya eşitse 
+bu sayıya "Armstrong" sayısı denir.
+Örnek: 1634 = 14 + 64 + 34 + 44 = 1634
+Kullanıcıdan alınan bir sayının "Armstrong" sayısı olup olmadığını bulan yazılımı python dilinde programlayınız.
+"""
+"""
+sayi = input("Sayi giriniz:")
+toplam =0
+
+for i in range(len(sayi)):
+    toplam += int(sayi[i])**len(sayi)
+
+if int(sayi) == toplam:
+    print("Girilen sayi bir Armstrong sayidir.")
+
+else:
+    print("Girilen sayi bir Armstrong sayi degildir.")
+"""
+
+#12) 
+"""
+215 = 32768 ve basamaklarının toplamı 3 + 2 + 7 + 6 + 8 = 26 'dır.
+Buna göre, klavyeden girilecek x ve y sayılarından oluşacak xy sayısının değerinin basamakları toplamını hesaplayan yazılımı python dilinde yazınız.
+"""
+"""
+import math
+
+x = int(input("Taban degerini giriniz:"))
+y= int(input("Us degerini giriniz:"))
+
+sonuc = pow(x,y)
+
+basamak_toplami = 0
+for i in str(sonuc):
+    basamak_toplami += int(i)
+
+print(f"{x}^{y} ifadesinin sonucu: {sonuc} ve basamaklari toplami :{basamak_toplami}")
+"""
+
+#13)  Klavyeden girilecek n sayısı için 11+22+33+…..nn değerini hesaplayan yazılımı python dilinde yazınız.
+"""
+n= int(input("Bir sayi giriniz:"))
+toplam =0
+for i in range(1,n+1):
+    toplam += i**i
+
+print(f"Sonuc:{toplam}")
+"""
+
+#14) 
+"""
+ 3'ün veya 5'in katı olan 10'dan küçük tüm doğal sayıları listelersek, 3, 5, 6, ve 9'u elde ederiz. Bu katların toplamı 23'tür.
+3'ün veya 5'in 1000'den küçük tüm katlarının toplamını hesaplayan yazılımı python dilinde programlayınız.
+"""
+"""
+toplam = 0
+for i in range(1,1000):
+    if(i % 3 == 0 ) or (i%5 ==0):
+        toplam += i
+print(f"3'ün veya 5'in 1000'den küçük tüm katlarının toplamı:{toplam}")
+"""
+
+#15)
+"""
+k > 0 olmak şartıyla (k-1) sayısı 4’e tam bölünüyorsa hilbert sayısı olarak adlandırılır. 
+Örnek: 9 sayısının 1 ekseği olan 8 sayısı 4'e tam bölündüğü için 9 sayısı hilbert sayıdır.
+1000'den küçük tüm hilbert sayılarını listeleyen yazılımı python dilinde yazınız.
+"""
+"""
+for k in range(1,1000):
+    if (k-1)%4 == 0:
+        print(k)
+"""
+
+#16) 
+"""
+n! şu şekilde yazılabilir : 1*2*3*......(n-1)*n
+Örneğin, 10! = 10 * 9 * ... * 3 * 2 * 1 = 3628800.
+Ve 10! sayısının basamaklarının toplamı da 3 + 6 + 2 + 8 + 8 = 27 'dir.
+Yukarıdaki örnekte olduğu gibi, girilen sayının faktöriyel değerinin basamakları toplamını hesaplayan yazılımı python dilinde yazınız.
+"""
+"""
+n= int(input("Bir sayı giriniz:"))
+faktoriyel_sonuc=1
+
+for i in range(n,0,-1):
+    faktoriyel_sonuc *= i
+
+
+toplam = 0
+for j in str(faktoriyel_sonuc):
+    toplam += int(j)
+
+print(f"Faktoriyel sonucu:{faktoriyel_sonuc} \n Sonucun toplami:{toplam}")
+"""
+
+#17) Kullanıcının girdiği sayıyı 2'lik sayı sistemine çeviren yazılımı python dilinde yazınız.
+"""
+sayi = int(input("Sayi giriniz:"))
+sonuc = ""
+
+if sayi == 0:
+    sonuc = "0"
+
+gecici_sayi = sayi
+while(gecici_sayi>0):
+    kalan = gecici_sayi%2
+    sonuc= str(kalan) +sonuc
+    gecici_sayi = gecici_sayi//2
+
+print(f"{sayi} sayisinin 2'lik sistemdeki karsiligi: {sonuc}")
+"""
+
+#18)
+# Aşağıdaki tekrarlama dizisi pozitif tam sayılar için tanımlanmıştır:
+# n → n/2 (n çift)
+# n → 3n + 1 (n tek)
+# Yukarıdaki kuralı uygulayarak ve 13'ten başlayarak aşağıdaki diziyi üretiriz:
+# 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+# 13'ten başlayıp 1'de sonlanan bu dizinin 10 adet terim içerdiği görülebilir. Henüz kanıtlanmış olmasa da (Collatz Problemi), bütün başlangıç 
+# sayılarının 1'de sonuçlanacağı sanılmaktadır.
+# Siz de, klavyeden girilecek herhangi bir pozitif tam sayının collatz zincirini oluşturan yazılımı python dilinde yazınız.
+
+"""
+n = int(input("Pozitif bir tamsayi giriniz:"))
+
+
+if(n<0):
+    print("Lütfen pozitif bir tamsayı giriniz!")
+    exit()
+
+# while(True):
+#     n = int(input("Pozitif bir tamsayi giriniz:"))
+#     if n>0:
+#         break
+#     print("Lütfen pozitif bir tamsayı giriniz!")
+
+zincir = [n]
+while n>1 :
+    if n%2==0:
+        n = n//2
+    else:
+        n=3*n+1
+    zincir.append(n)
+
+print("->".join(map(str,zincir)))
+print(f"Toplam terim sayisi: {len(zincir)}")
+"""
+
+#19)
+# Üçgensel sayı dizileri ardışık doğal sayıların toplanmasıyla üretilir. 
+# Örneğin 7. üçgensel sayı 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28'dir. İlk 10 üçgensel sayı şöyledir:
+# 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, …
+# Siz de, klavyeden girilecek herhangi bir pozitif tam sayının üçgensel sayı değerini hesaplayan yazılımı python dilinde yazınız
+"""
+sayi = int(input("Tamsayı giriniz:"))
+
+toplam=0
+dizi =[sayi]
+for i in range(1,sayi+1):
+    toplam += i
+    dizi.append(i)
+print(f"{dizi}={toplam}")
+"""
+
+#20)
+# 10'dan küçük asal sayıların toplamı 2 + 3 + 5 + 7 = 17'dir.
+# 2 milyondan küçük bütün asal sayıların toplamını bulan yazılımı python dilinde yazınız.
+
+      
