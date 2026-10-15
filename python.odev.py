@@ -349,4 +349,108 @@ print(f"{dizi}={toplam}")
 # 10'dan küçük asal sayıların toplamı 2 + 3 + 5 + 7 = 17'dir.
 # 2 milyondan küçük bütün asal sayıların toplamını bulan yazılımı python dilinde yazınız.
 
-      
+# 21) 
+# Fibonacci serisinde her sayı, kendisinden önce gelen iki sayının toplamıdır. 1 ve 2 ile başlayan serinin ilk 10 sayısı:
+# 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+# Bu serinin dört milyondan küçük tüm çift sayılarının toplamını hesaplayan yazılımı python dilinde yazınız.
+
+# 1. AŞAMA: 4 milyondan küçük tüm Fibonacci sayılarını bir listeye toplama
+"""
+fibonacci_serisi = []
+a, b = 1, 2
+
+while a < 4_000_000:
+    fibonacci_serisi.append(a)
+    a, b = b, a + b  # Bir sonraki elemanı hesaplama
+
+# 2. AŞAMA: Oluşan serideki çift sayıları seçip toplama
+cift_toplam = 0
+for sayi in fibonacci_serisi:
+    if sayi % 2 == 0:
+        cift_toplam += sayi
+
+print(f"4 Milyondan küçük Fibonacci serisi:\n{fibonacci_serisi}\n")
+print(f"Bu serideki çift sayıların toplamı: {cift_toplam}")
+"""
+
+#23) Klavyeden girilen 2 sayının combinasyonunu hesaplayan yazılımı python dilinde yazınız.
+"""
+ilk_sayi = int(input("İlk sayiyi giriniz:"))
+ikinci_sayi = int(input("İkinci sayiyi giriniz:"))
+
+farklari = ilk_sayi - ikinci_sayi
+
+def faktoriyel(sayi):
+    sonuc = 1
+    for i in range(1, sayi + 1):
+        sonuc *= i
+    return sonuc
+
+if ilk_sayi<0 or ikinci_sayi<0:
+    print("Sayılar negatif olamaz.")
+elif ikinci_sayi>ilk_sayi:
+    print("İkinci sayi ilk sayidan büyük olmaz.")
+else:
+    kombinasyon = faktoriyel(ilk_sayi) / (faktoriyel(ikinci_sayi) * faktoriyel(farklari))
+
+print(f"C({ilk_sayi},{ikinci_sayi}) sonucu : {kombinasyon}")
+"""
+
+#25)Bir sayı, pozitif tam bölenlerinin adedine de tam bölünüyorsa bu sayıya “Tau Sayısı” denir.
+# Örnek:  24’ün pozitif tam bölenleri:
+# 1, 2, 3, 4, 6, 8, 12, 24  => 8 adet tam böleni mevcut.
+# 24 sayısı 8'e tam bölündüğü için 24 sayısı bir Tau Sayısıdır.
+# Klavyeden girilen sayının Tau Sayısı olup olmadığını tespit eden yazılımı python dilinde programlayınız.
+"""
+sayi = int(input("Bir sayi giriniz:"))
+bolen_sayisi=0
+for i in range (1,sayi+1):
+    if sayi%i == 0:
+        bolen_sayisi +=1
+
+if sayi%bolen_sayisi == 0:
+    print(f"Girilen sayi{sayi} bir Tau sayısıdır çünkü bölen adedine ({bolen_sayisi}) de tam bölünüyor: {sayi//bolen_sayisi} ")
+"""
+
+#27)
+#  p asal sayı olmak üzere, p+2 sayısı da asal sayı ise bu p sayısına "chen sayısı" denir. 
+# Örnek: 3 sayısı asaldır. 3+2=5 sayısı da asal sayı olduğundan 3 sayısı chen sayıdır.
+# 1000'den küçük tüm chen sayılarını listeleyen yazılımı python dilinde yazınız.
+"""
+chen_sayilar=[]
+for i in range(2,1000):
+    asal_tespiti=0
+    for j in range(2,i):
+        if i%j == 0:
+            asal_tespiti +=1
+            break
+
+    if asal_tespiti == 0:
+        a=i+2
+        asal_tespiti_iki=0
+        for k in range(2,a):
+            if a%k == 0:
+                asal_tespiti_iki +=1
+                break
+        if asal_tespiti_iki == 0:
+            chen_sayilar.append(i)
+
+print(f"1000'den küçük Chen Sayilari : {chen_sayilar}")
+"""
+
+#29) Klavyeden girilen bir sayıyı asal çarpanlarına ayıran yazılımı python dilinde yazınız.
+# sayi = int(input("Bir sayi giriniz: "))
+
+# gecici = sayi
+# asal_carpanlar = []
+# bolen = 2
+
+# while gecici > 1:
+#     if gecici % bolen == 0:
+#         asal_carpanlar.append(bolen)
+#         gecici //= bolen  # Sayıyı bölene bölüp küçültüyoruz
+#     else:
+#         bolen += 1        # Kalansız bölünmüyorsa bir sonraki böleni deniyoruz
+
+# print(f"{sayi} sayisinin asal carpanlari: {asal_carpanlar}")
+
